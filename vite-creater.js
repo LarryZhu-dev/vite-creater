@@ -33,8 +33,11 @@ async function waitUserPresskey() {
   });
 }
 async function selectFramework(child) {
-  // 当按下回车键时
   let input = await waitUserPresskey();
+  // 如果按下ctrl+c，退出进程
+  if (input === '\u0003') {
+    process.exit();
+  }
   child.stdin.write(input);
 }
 function execCreateTs(command) {
@@ -154,8 +157,8 @@ async function setCustomRules(answer) {
   }
   conf.set("customRulesList", customRulesList);
 }
-async function startCreate(answer) {
-  let { projectName, cssPreprocessor, vuexorpinia, vueRouter, save, otherPackages, jsorts } = answer
+async function startCreate(initProjectName, answer) {
+  let { cssPreprocessor, vuexorpinia, vueRouter, otherPackages, jsorts } = answer
   let installs = []
   cssPreprocessor !== 'no' && installs.push(cssPreprocessor)
   vueRouter !== 'no' && installs.push('vue-router')
@@ -166,16 +169,16 @@ async function startCreate(answer) {
   }
   let installCommand = `npm i ${installs.join(' ')}`
   // 开始使用vite create命令创建项目
-  let initCommand = `npm create vite@latest ${projectName} --template vue`
+  let initCommand = `npm create vite@latest ${initProjectName} --template vue`
   loadingAnimation();
   if (jsorts === 'TypeScript') {
-    await execCreateJs(initCommand)
-  } else {
     await execCreateTs(initCommand)
+  } else {
+    await execCreateJs(initCommand)
   }
   clearAnimation();
   setTimeout(async () => {
-    process.chdir(`${projectName}`)
+    process.chdir(`${initProjectName}`)
     console.log("\n\x1b[32m√\x1b[0m 项目创建完成")
     // 安装依赖
     loadingAnimation();
@@ -280,7 +283,7 @@ async function askForOptions(initProjectName) {
     if (save === 'yes') {
       await setCustomRules(answer)
     }
-    await startCreate(answer)
+    await startCreate(initProjectName, answer)
   }
 }
 function clearCustomRules() {
