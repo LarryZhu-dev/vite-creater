@@ -1,0 +1,31 @@
+{
+  "name": "vite-creater",
+  "version": "1.0.1",
+  "description": "vite creater",
+  "main": "vite-creater.js",
+  "scripts": {
+    "test": "vcreater"
+  },
+  "bin": {
+    "vcreater": "vite-creater.js"
+  },
+  "keywords": [
+    "vite",
+    "vue",
+    "vite-creater",
+    "vite-preInstall"
+  ],
+  "type": "module",
+  "author": "Larry Zhu",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^10.0.1",
+    "configstore": "^6.0.0",
+    "inquirer": "^9.2.0",
+    "jsonpath": "^1.1.1",
+    "less": "^4.1.3",
+    "showtips": "^1.0.5",
+    "vue-router": "^4.1.6",
+    "vuex": "^4.1.0"
+  }
+}
