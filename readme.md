@@ -10,7 +10,7 @@ npm i vite-creater -g
 C:\Users\Administrator>vcreater
 Usage: vite-creater [options] [command]
 
-vite-creater是一款用于快速创建vite项目的脚手架工具，目前仅支持vue项目的创建。
+vite-creater是一款用于快速创建vite项目的脚手架工具
 
 Options:
   -V, --version                 output the version number

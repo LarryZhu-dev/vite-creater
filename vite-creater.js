@@ -4,7 +4,6 @@ import { program } from 'commander';
 import inquirer from 'inquirer';
 import Configstore from 'configstore';
 import { exec, fork } from 'child_process';
-import readline from 'readline';
 const conf = new Configstore('vite-creater');
 let animation = null;
 
@@ -292,7 +291,7 @@ function clearCustomRules() {
 }
 program
   .version('1.0.0')
-  .description(`vite-creater是一款用于快速创建vite项目的脚手架工具，目前仅支持vue项目的创建。`);
+  .description(`vite-creater是一款用于快速创建vite项目的脚手架工具`);
 
 program
   .command('init <projectName>')
