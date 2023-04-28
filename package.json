@@ -1,6 +1,6 @@
 {
   "name": "vite-creater",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "vite creater",
   "main": "vite-creater.js",
   "scripts": {
