@@ -21,7 +21,6 @@ function getCustomRulesList() {
   }
 }
 async function waitUserPresskey() {
-  // 返回一个promise对象
   return await new Promise((resolve, reject) => {
     process.stdin.setRawMode(true);
     process.stdin.resume();

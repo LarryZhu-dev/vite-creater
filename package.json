@@ -1,10 +1,14 @@
 {
   "name": "vite-creater",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "vite creater",
   "main": "vite-creater.js",
   "scripts": {
     "test": "vcreater"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/995231030/vite-creater.git"
   },
   "bin": {
     "vcreater": "vite-creater.js"
